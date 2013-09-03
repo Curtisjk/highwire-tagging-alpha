@@ -1,4 +1,5 @@
 <?php
+	//include the config
 	require_once("../../config/config.php");
 	
 	//connect to the db
@@ -13,6 +14,8 @@
 	
 	$export = mysql_query ( $select ) or die ( "Sql error : " . mysql_error( ) );
 	$fields = mysql_num_fields ( $export );
+
+	$header = $data = NULL;
 
 	for ( $i = 0; $i < $fields; $i++ )
 	{

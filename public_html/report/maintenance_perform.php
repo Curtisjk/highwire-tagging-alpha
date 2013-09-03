@@ -16,8 +16,12 @@
     header('Location: error.php');
     exit();
   }
-
-  $vid = $_GET["vid"];
+  $vid = $commentTotal = NULL;
+  
+  if(isset($_GET["vid"])){
+      $vid = $_GET["vid"];
+  }
+  
 ?>
 
       <div class="container">

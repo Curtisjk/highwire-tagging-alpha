@@ -3,6 +3,7 @@
 	$url = "videos.php";
 	include("templates/header.tpl.php");
   include_once("../config/config.php");
+  include_once("../config/videos.php");
 
   //establish a database connection
   $con = mysql_connect(DB_HOST, DB_USER, DB_PASS);
@@ -10,13 +11,13 @@
 
   //check connection
   if((!$con) || (!$link)){
-       //connection error
+    //connection error
     header('Location: error.php');
     exit();
   }
 
-  //create new user
-  $query = "SELECT `videos`.`video_id`, COUNT(`comment`.`comment`) AS `comments`, COUNT(DISTINCT `session`.`id`) as `sessions`, `videos`.`title`, `videos`.`length` FROM `videos`, `session`, `comment` WHERE `comment`.`session_id` = `session`.`id` AND `session`.`video_id` = `videos`.`video_id` GROUP BY `session`.`video_id`";
+  //select video stats
+  $query = "SELECT `session`.`video_id`, COUNT(`comment`.`comment`) AS `comments`, COUNT(DISTINCT `session`.`id`) as `sessions` FROM `session`, `comment` WHERE `comment`.`session_id` = `session`.`id` GROUP BY `session`.`video_id`";
   $result = mysql_query($query);
 ?>
 
@@ -44,7 +45,20 @@
           ?>
             <tr>
                 <td><a href="tags.php?vid=<?=$row['video_id']?>"><?=$row['video_id']?></a></td>
-                <td><?=$row['title']?></td>
+                <td><?php
+                  $title = NULL;
+                  foreach($videos as $vid){
+                    if($vid['id'] == $row['video_id']){
+                      $title = $vid['name']; 
+                      break;
+                    }
+                  }
+                  if($title != NULL){
+                    echo $title;
+                  } else {
+                    echo "Cannot find title in videos.php";
+                  }
+                  ?></td>
                 <td><?=$row['comments']?></td>
                 <td><?=$row['sessions']?></td>
             </tr>

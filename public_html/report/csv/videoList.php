@@ -1,4 +1,5 @@
 <?php
+	//include the config
 	require_once("../../config/config.php");
 	
 	//connect to the db
@@ -8,6 +9,8 @@
 	$select = "SELECT `videos`.`video_id`, COUNT(`comment`.`comment`) AS `comments`, COUNT(DISTINCT `session`.`id`) as `sessions`, `videos`.`title`, `videos`.`length` FROM `videos`, `session`, `comment` WHERE `comment`.`session_id` = `session`.`id` AND `session`.`video_id` = `videos`.`video_id` GROUP BY `session`.`video_id`";
 	$export = mysql_query ( $select ) or die ( "Sql error : " . mysql_error( ) );
 	$fields = mysql_num_fields ( $export );
+
+	$header = $data = NULL;
 
 	for ( $i = 0; $i < $fields; $i++ )
 	{
