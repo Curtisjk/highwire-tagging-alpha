@@ -1,0 +1,147 @@
+#controlContainer{
+	width: inherit;
+	height: 99px;
+	margin-top: -64px;
+}
+
+.progressBar{
+	width: inherit;
+	height: 10px;
+	margin-top: 0px;
+	background-color: #333333;
+}
+
+.progressBar .elapsed{
+	background-color: #ed1b2e;
+	height: 10px;
+	margin-top: -10px;
+	width: 0;
+}
+
+.progressBar .seek{
+	margin-top: -15px;
+}
+
+.progressBar .buffered{
+	height:10px;
+	background-color: #6e040e;
+	margin-top: 0px;
+	width:0;
+}
+
+#graph{
+	height: 60px;
+	overflow: hidden;
+}
+
+.buttons{
+	height: 30px;
+	width: 100%;
+	margin: 1px;
+}
+
+.pButton{
+	width: 23px;
+	height: 23px;
+	display: inline-block;
+	margin-left: 20px;
+	background-image: url('../img/player/play.png');
+	background-repeat: no-repeat;
+	background-position:center;
+	background-size: 15px 15px;
+}
+
+.pButton.play{
+
+}
+
+.pButton.pause{
+	background-color: #000000;
+	background-image: url('../img/player/pause.png');
+	background-repeat: no-repeat;
+	background-position:center;
+	background-size: 15px 15px;
+}
+
+.sButton{
+	width:23px;
+	height:23px;
+	background-image: url('../img/player/audio.png');
+	background-repeat: no-repeat;
+	background-position:center;
+	background-size: 15px 15px;
+	display:inline-block;
+	margin-left: 20px;
+}
+
+.sButton.mute{
+	background-image: url('../img/player/mute.png');
+	background-repeat: no-repeat;
+	background-position:center;
+	background-size: 15px 15px;
+}
+
+.timeElapsed{
+	display:inline-block;
+	position: relative;
+	height:23px;
+	margin-top: 0px;
+	padding: 0;
+	line-height: 23px;
+	vertical-align: top;
+	font-size: 12px;
+	margin-left: 20px;
+}
+
+.timeTotal{
+	display:inline-block;
+	position: relative;
+	line-height: 23px;
+	height:23px;
+	vertical-align: top;
+	margin:0;
+	padding:0;
+	font-size: 12px;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000000;
+}
+
+.modal-backdrop.fade {
+  opacity: 0;
+}
+
+.modal-backdrop, .modal-backdrop.fade.in {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+.videoDiv{
+	width: 620px !important;
+	max-width: 620px !important;
+	min-width: 620px !important;
+	display: inline-block !important;
+}
+
+.tagsDiv{
+	width:!important;
+	display: inline-block !important;
+}
+.row-box{
+	margin-right: 40px;
+}
+
+#restart_video{
+	display: none;
+}
+
+.error{
+	background: #f2dede !important;
+}

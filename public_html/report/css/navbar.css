@@ -1,0 +1,18 @@
+body {
+padding: 30px;
+}
+
+.navbar {
+margin-bottom: 10px;
+}
+
+#canvas-container {
+	overflow-x: auto;
+	overflow-y: visible;
+    position: relative;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+#canvas {
+	display: block;
+}
