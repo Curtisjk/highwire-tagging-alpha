@@ -24,13 +24,13 @@ Libraries Used
 
 Installation
 -------------
-1. Copy the contents of the public_html folder to your webserver
+1. Copy the contents of the `public_html` folder to your webserver
 2. Create a MySQL database
-3. Using your preferred database editor, import the database.sql file to your newly created database.
-4. Edit the /config/config.php file with your site and database settings.
+3. Using your preferred database editor, import the `/install/database.sql` file to your newly created database.
+4. Edit the `/config/config.php` file with your site and database settings.
 
-**IMPORTANT:** You will also need to secure the /report directory. How you do this is up to you, the easiest way is to use .htaccess. During the study at Lancaster University, we used the university's own CAS server for authentication.
+**IMPORTANT:** You will also need to secure the `/report` directory. How you do this is up to you, the easiest way is to use .htaccess. During the study at Lancaster University, we used the university's own CAS server for authentication.
 
 Configuring the Video List
 -------------
-The video list is controlled by the /config/videos.php file. This uses a PHP array to store the video information including the title, description and length of the video. You may add as many videos as you wish to the array.
+The video list is controlled by the `/config/videos.php` file. This uses a PHP array to store the video information including the title, description and length of the video. You may add as many videos as you wish to the array.
