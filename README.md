@@ -33,4 +33,21 @@ Installation
 
 Configuring the Video List
 -------------
-The video list is controlled by the `/config/videos.php` file. This uses a PHP array to store the video information including the title, description and length of the video. You may add as many videos as you wish to the array.
+The video list is controlled by the `/config/videos.php` file. This uses a PHP array to store the video information including the title, description and YouTube ID of the video. This array must contain at least one video, but there is no maximum number of videos you may add.
+
+An example of the video configuration can be seen below:
+
+```
+array(
+	"id" => "fAZpWctgZrY",
+	"name" => "Police clash with unionist march in Belfast",
+	"desc" => "At least four police officers and a Member of Parliament were injured Friday in clashes in the Northern Ireland capital of Belfast, when an annual unionist march devolved into violence. MP Nigel Dodds was taken to a hospital after being hit on the head by a projectile, while three of the four injured police were knocked out."
+),
+
+
+array(
+	"id" => "FU2puZ6e4_0",
+	"name" => "Dolphins Make a Splash with Blind Students",
+	"desc" => "A group of blind and visually impaired students got the chance to interact with dolphins at Miami's Seaquarium. The program supports learning about nature and confidence building. (July 12)."
+)
+```
