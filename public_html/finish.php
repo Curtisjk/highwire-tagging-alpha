@@ -1,13 +1,17 @@
 <?php
+	//check to see whether we have a cookie value for the uid - if not, redirect to the timeout page.
 	if(!isset($_COOKIE["uid"])){
 		header( 'Location: timeout.php' ) ;
 	}
 
+	//include our config data
 	include_once("config/config.php");
+
+	//grab the uid
 	$userID = $_COOKIE["uid"];
 
 	//destroy cookies
-	//include_once("destroyCookie.php");
+	include_once("destroyCookie.php");
 ?>
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
 <head>

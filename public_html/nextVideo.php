@@ -1,4 +1,5 @@
 <?php
+	//include the config files
 	include_once("config/config.php");
 
 	//increment watched flag
