@@ -37,17 +37,19 @@ The video list is controlled by the `/config/videos.php` file. This uses a PHP a
 
 An example of the video configuration can be seen below:
 
-```
-array(
-	"id" => "fAZpWctgZrY",
-	"name" => "Police clash with unionist march in Belfast",
-	"desc" => "At least four police officers and a Member of Parliament were injured Friday in clashes in the Northern Ireland capital of Belfast, when an annual unionist march devolved into violence. MP Nigel Dodds was taken to a hospital after being hit on the head by a projectile, while three of the four injured police were knocked out."
-),
+```PHP
+$videos = array(
+	array(
+		"id" => "fAZpWctgZrY",
+		"name" => "Police clash with unionist march in Belfast",
+		"desc" => "At least four police officers and a Member of Parliament were injured Friday in clashes in the Northern Ireland capital of Belfast, when an annual unionist march devolved into violence. MP Nigel Dodds was taken to a hospital after being hit on the head by a projectile, while three of the four injured police were knocked out."
+	),
 
 
-array(
-	"id" => "FU2puZ6e4_0",
-	"name" => "Dolphins Make a Splash with Blind Students",
-	"desc" => "A group of blind and visually impaired students got the chance to interact with dolphins at Miami's Seaquarium. The program supports learning about nature and confidence building. (July 12)."
+	array(
+		"id" => "FU2puZ6e4_0",
+		"name" => "Dolphins Make a Splash with Blind Students",
+		"desc" => "A group of blind and visually impaired students got the chance to interact with dolphins at Miami's Seaquarium. The program supports learning about nature and confidence building. (July 12)."
+	)
 )
 ```
