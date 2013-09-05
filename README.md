@@ -13,7 +13,8 @@ The tool is web-based. The tagging elements use YouTube's Javascript API and a c
 The tool will cycle through a predefined list of videos - the particiapant may choose to do all of these videos if they wish to do so but may end the process at any time. When the participant visits a new video they will also be asked to rate their expertise on the video's subject.
 
 ###Demo
-Public Tool - http://curtiskennington.co.uk/demo/highwire-alpha/
+Public Tool - http://curtiskennington.co.uk/demo/highwire-alpha/ 
+
 Reports (No login required) - http://curtiskennington.co.uk/demo/highwire-alpha/report/
 
 Libraries Used
