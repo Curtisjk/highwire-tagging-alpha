@@ -1,7 +1,7 @@
 <?php
-	$title = "Videos";
-	$url = "videos.php";
-	include("templates/header.tpl.php");
+  $title = "Videos";
+  $url = "videos.php";
+  include("templates/header.tpl.php");
   include_once("../config/config.php");
   include_once("../config/videos.php");
 
@@ -72,12 +72,16 @@
 
       <hr/>
       <h2>Summary</h2>
-      <p><?=$commentTotal?> Tags from <?=$sessionTotal?> sessions. Average <?=number_format(($commentTotal / $sessionTotal), 2, '.', '')?> comments per session.</p>
+      <p><?=$commentTotal?> Tags from <?=$sessionTotal?> sessions. 
+      <?php
+        if($commentTotal != 0){?>
+          Average <?=number_format(($commentTotal / $sessionTotal), 2, '.', '')?> comments per session.
+        <?}?></p>
 
       </div>
 
 <?php
-	include("templates/footer.tpl.php");
+  include("templates/footer.tpl.php");
 
   //close the db connection
   mysql_close();
