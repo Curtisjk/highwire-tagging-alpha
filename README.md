@@ -6,6 +6,10 @@ This web-based tool was built during research on crowdsourced metadata that was 
 
 It is designed to allow participants to view a one or more YouTube videos and add text-based tags when watching the video. This is stored anonymously in a MySQL database along with the timestamp. The results can be retrieved using the included reporting tool.
 
+License
+-------------
+This software is released freely under the MIT License - further information can be found in the LICENSE file.
+
 How It Works
 -------------
 The tool is web-based. The tagging elements use YouTube's Javascript API and a custom player alongside a PHP and MySQL backend which serves the pages and stores the results in a MySQL Database. In order for participants to use this tool their browser must support Javascript, Flash and have cookies enabled.
