@@ -1,3 +1,13 @@
+// This is a different elements object to the youtube
+// one because it is placed in a seperate scope
+//   - Maybe change the name to distinguigh between the two?
+//   - More elements could be cached, just using the main ones
+var elements = {
+	comment: $('#comment'),
+	commentForm: $('#commentform')
+}
+
+
 function jump(h){
     var url = location.href;
     location.href = "#"+h;
@@ -30,17 +40,16 @@ function submitExpertise(form)
 	});
 }
 
-function validate(form)
+function validateTag() // NOTE": had 'form' as param but removed because it is used nowehere in the function
 {
-	if(document.getElementById('comment').value=='' || document.getElementById('comment').value=='Add Tag')
+	if(elements.comment.val() === '' || elements.comment.val() === 'Add Tag')
 	{
 		alert("Please Enter A Tag");
-		$('#comment').focus();
+		elements.comment.focus();
 	} else {
 		submitComment();
 	}
-	
-	
+		
 }
 
 function selectComment(field){
@@ -53,12 +62,16 @@ function selectComment(field){
 function submitComment()
 {
 	var time = document.getElementById(playerID).getCurrentTime();
-	var comment = document.getElementById('comment').value;
+	var comment = elements.comment.val();
 
 	$.ajax({
 		type: "POST",
 		url: "ajax/addComment.php",
-		data: {sessionID: sessionID, time: time, comment: comment}
+		data: {
+			sessionID: sessionID, 
+			time: time, 
+			comment: comment
+		}
 	}).done(function(msg) {
 		var data = jQuery.parseJSON(msg);
 		if(data.status !== "Success"){
@@ -80,12 +93,12 @@ function submitComment()
 		    }
 
 	        //reset the form
-	        document.getElementById('commentForm').reset();
+	        elements.commentForm[0].reset();
 
     	}
 	});
 
-	$('#comment').focus();
+	elements.comment.focus();
 
 }
 
@@ -95,8 +108,7 @@ function pad2(number) {
 
 function convertSeconds(seconds){
 	var mins = Math.floor(seconds/60);
-	var secs = seconds - (mins * 60);
-	var secs = Math.floor(secs);
+	var secs = Math.floor(seconds - (mins * 60));
 
 	return mins + ":" + pad2(secs);
 }
@@ -110,7 +122,7 @@ function detectFlash(){
 
 //prevent submit from refreshing the page.
 $(function() {
-    $("commentForm").submit(function() { return false; });
+    elements.commentForm.submit(function() { return false; });
 });
 
 //define spacebar actions - play/pause.
@@ -130,25 +142,37 @@ document.onkeydown=function(e){
 }; 
 
 //define keypress actions for the comment box
-$("#comment").keypress(function (e) {
+elements.comment.keypress(function (e) {
+
+	var $this = $(this),
+		SPACE_KEY = 32,
+		ENTER_KEY = 13; // If these keys are used elsewhere maybe store them in a settings obj at top of file?
+
 	//check for error
-	if($("#comment").hasClass('error')){
-		$("#comment").removeClass('error');
+	if($this.hasClass('error')) { 
+		$this.removeClass('error');
 	}
 
 	//enter to submit the form
-    if (e.keyCode == 13) {
-       	validate(('#commentForm'));
-        document.getElementById('comment').value='';
-        return false;
-    } if (e.keyCode == 32) {
+    if (e.keyCode === ENTER_KEY) {
+
     	e.preventDefault();
+       	validateTag();
+        document.getElementById('comment').value='';
+        
+        return false;
+
+    } else if (e.keyCode === SPACE_KEY) {
+
+    	e.preventDefault(); // shouldn't this be for the enter key as that triggers form submission?
     	//flash red
-    	$("#comment").addClass('error');
+    	elements.comment.addClass('error');
     	alert("We've disabled the spacebar in this study. Please tag using single words, or hyphenated words only.");
+    	
     	return false;
 
     } else {
+
     	if($('#auto_pause').prop('checked')){
 	    	var player = document.getElementById(playerID);
 	    	//if the video is playing, pause it
@@ -157,6 +181,7 @@ $("#comment").keypress(function (e) {
 				player.pauseVideo();
 	    	}
     	}
+
     }
 });
 
