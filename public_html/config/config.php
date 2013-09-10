@@ -4,13 +4,13 @@
 	define('DB_PORT', 3306);
 
 	//The MySQL Username
-	define('DB_USER', '');
+	define('DB_USER', 'root');
 
 	//The MySQL Password
-	define('DB_PASS', '');
+	define('DB_PASS', 'root');
 
 	//The MySQL Database Name
-	define('DB_NAME', '');
+	define('DB_NAME', 'tagging_alpha');
 
 	//The SITE_HOME setting refers to where your install is located on your site
 	//eg - http://example.com/tagging/tool/ would be '/tagging/tool/'

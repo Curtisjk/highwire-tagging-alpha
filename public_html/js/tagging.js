@@ -4,7 +4,7 @@
 //   - More elements could be cached, just using the main ones
 var elements = {
 	comment: $('#comment'),
-	commentForm: $('#commentform')
+	commentForm: $('#commentForm')
 }
 
 

@@ -137,7 +137,7 @@
 									   		Auto pause <input id="auto_pause" name="auto_pause" type="checkbox" value="true" checked> &nbsp;
 									   </span>
 									  <input size="20" name="comment" id="comment" type="text" autocomplete="off" onfocus="selectComment(this);" onblur="if(this.value==''){this.value='Add Tag'}" value="Add Tag">
-									  <button class="btn" name="submit" id="submit" type="button" value="Submit" onclick="return validate(this);">Add Tags</button>
+									  <button class="btn" name="submit" id="submit" type="button" value="Submit" onclick="return validateTag();">Add Tags</button>
 									</div>
 							 	</form>
 							 </div>
